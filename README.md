@@ -1,4 +1,6 @@
-# imagemap
+# imagemap - Install instructions
+
+Run the following commands.
 
 ```sh
 $ cd imagemap
