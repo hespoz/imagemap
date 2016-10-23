@@ -1,0 +1,52 @@
+Client ID 41e0929ccea341c28b43377fcf632e72
+
+Client Secret ba16edb740b948e0bbf4764b75cca6e7 
+
+
+https://instagram.com/oauth/authorize?response_type=code&client_id=41e0929ccea341c28b43377fcf632e72&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fauth&scope=public_content
+
+--Client side
+https://api.instagram.com/oauth/authorize/?client_id=41e0929ccea341c28b43377fcf632e72&redirect_uri=http%3A%2F%2Flocalhost%3A3000&response_type=token&scope=public_content
+
+
+
+https://api.instagram.com/v1/tags/nofilter/media/recent?access_token=4067852147.41e0929.91d6971f37cf47f6b83f534c31d36d37
+
+
+    curl -F 'client_id=41e0929ccea341c28b43377fcf632e72' \
+    -F 'client_secret=ba16edb740b948e0bbf4764b75cca6e7' \
+    -F 'grant_type=authorization_code' \
+    -F 'redirect_uri=http%3A%2F%2Flocalhost%3A3000' \
+    -F 'code=8da7ca3b23b34369996f346b4fac95b3' \
+    https://api.instagram.com/oauth/access_token
+
+
+    https://api.instagram.com/v1/locations/search?lat=48.858844&lng=2.294351&access_token=3681337826.41e0929.c7d43e6ac9ca433d9a6337857670790a
+
+
+    https://api.instagram.com/v1/media/search?lat=48.85478&lng=2.30038&di
+stance=1000&access_token=4067852147.41e0929.91d6971f37cf47f6b83f534c31d36d37
+
+https://api.instagram.com/v1/media/popular?access_token=3681337826.41e0929.c7d43e6ac9ca433d9a6337857670790a
+
+https://api.instagram.com/v1/media/search?lat=48.858844&lng=2.294351&access_token=3681337826.41e0929.c7d43e6ac9ca433d9a6337857670790a
+
+
+, "id": "253202376", "longitude": 
+
+
+    48.858345167212, "id": "273896292", "longitude": 2.2941175757934
+
+    https://api.instagram.com/v1/tags/search?q=snowy&access_token=3681337826.41e0929.c7d43e6ac9ca433d9a6337857670790a
+
+
+    https://apigee.com/console/instagram/v1/media/search?lat=48.858844&lng=2.294351&access_token=3681337826.41e0929.c7d43e6ac9ca433d9a6337857670790a
+
+
+
+
+    1366935300948915651_3681337826
+
+
+{"meta": {"code": 200}, "data": [{"attribution": null, "tags": [], "type": "image", "location": {"latitude": 48.8578199, "name": "Torre Eiffel Paris", "longitude": 2.29517, "id": 255844661}, "comments": {"count": 2}, "filter": "Aden", "created_time": "1477183117", "link": "https://www.instagram.com/p/BL4rcC8AM6o/", "likes": {"count": 1}, "images": {"low_resolution": {"url": "https://scontent.cdninstagram.com/t51.2885-15/s320x320/e35/14733753_1473261056022620_3980471841918550016_n.jpg?ig_cache_key=MTM2NzAzMzUzMDIwNjQ0MTEyOA%3D%3D.2", "width": 320, "height": 320}, "thumbnail": {"url": "https://scontent.cdninstagram.com/t51.2885-15/s150x150/e35/14733753_1473261056022620_3980471841918550016_n.jpg?ig_cache_key=MTM2NzAzMzUzMDIwNjQ0MTEyOA%3D%3D.2", "width": 150, "height": 150}, "standard_resolution": {"url": "https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/14733753_1473261056022620_3980471841918550016_n.jpg?ig_cache_key=MTM2NzAzMzUzMDIwNjQ0MTEyOA%3D%3D.2", "width": 640, "height": 640}}, "users_in_photo": [], "caption": null, "user_has_liked": true, "id": "1367033530206441128_3681337826", "user": {"username": "hespoz", "profile_picture": "https://igcdn-photos-e-a.akamaihd.net/hphotos-ak-xpa1/t51.2885-19/s150x150/14027388_189071278178140_1727103615_a.jpg", "id": "3681337826", "full_name": "Hector Espoz"}}, {"attribution": null, "tags": [], "type": "image", "location": {"latitude": 48.8578199, "name": "Torre Eiffel Paris", "longitude": 2.29517, "id": 255844661}, "comments": {"count": 0}, "filter": "Normal", "created_time": "1477171407", "link": "https://www.instagram.com/p/BL4VGn0AHXD/", "likes": {"count": 1}, "images": {"low_resolution": {"url": "https://scontent.cdninstagram.com/t51.2885-15/s320x320/e35/14723601_1286771211353179_3191843046677282816_n.jpg?ig_cache_key=MTM2NjkzNTMwMDk0ODkxNTY1MQ%3D%3D.2", "width": 320, "height": 320}, "thumbnail": {"url": "https://scontent.cdninstagram.com/t51.2885-15/s150x150/e35/14723601_1286771211353179_3191843046677282816_n.jpg?ig_cache_key=MTM2NjkzNTMwMDk0ODkxNTY1MQ%3D%3D.2", "width": 150, "height": 150}, "standard_resolution": {"url": "https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/14723601_1286771211353179_3191843046677282816_n.jpg?ig_cache_key=MTM2NjkzNTMwMDk0ODkxNTY1MQ%3D%3D.2", "width": 640, "height": 640}}, "users_in_photo": [], "caption": {"created_time": "1477171407", "text": "Prueba", "from": {"username": "hespoz", "profile_picture": "https://igcdn-photos-e-a.akamaihd.net/hphotos-ak-xpa1/t51.2885-19/s150x150/14027388_189071278178140_1727103615_a.jpg", "id": "3681337826", "full_name": "Hector Espoz"}, "id": "17854292773105705"}, "user_has_liked": true, "id": "1366935300948915651_3681337826", "user": {"username": "hespoz", "profile_picture": "https://igcdn-photos-e-a.akamaihd.net/hphotos-ak-xpa1/t51.2885-19/s150x150/14027388_189071278178140_1727103615_a.jpg", "id": "3681337826", "full_name": "Hector Espoz"}}]}
+    
