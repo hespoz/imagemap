@@ -52,9 +52,11 @@ var Index = React.createClass({
   },
 
   render : function() {
+    var url = encodeURIComponent(window.location.href);
+    var instUrl = "https://api.instagram.com/oauth/authorize/?client_id=41e0929ccea341c28b43377fcf632e72&redirect_uri=" + url + "&response_type=token&scope=public_content";
     access_token = this.urlParam('access_token');
     if(access_token == null){
-      return (<div>You need to be logged <a href="https://api.instagram.com/oauth/authorize/?client_id=41e0929ccea341c28b43377fcf632e72&redirect_uri=http%3A%2F%2Flocalhost%3A3000&response_type=token&scope=public_content">Log In</a></div>);	
+      return (<div>You need to be logged <a href={instUrl}>Log In</a></div>);	
     }
 
    return (
@@ -84,6 +86,6 @@ var Index = React.createClass({
 
 });
 
-render(<PageHeader>Instagram by location <small>Real API</small></PageHeader>, document.getElementById('menu'));
+render(<PageHeader>Images by location <small>API</small></PageHeader>, document.getElementById('menu'));
 
 render(<Index/>, document.getElementById('app'));

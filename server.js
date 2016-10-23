@@ -24,8 +24,10 @@ app.use(router.post('/like/:mediaId/:accessToken', function(req, res, next) {
 	};
 
 	request(options, function(error, response, body) {
-	    console.log(body);
-	    res.json({ media: req.params.mediaId });
+	    
+	    var resp = JSON.parse(body);
+	    console.log(resp);
+	    res.json({ media: req.params.mediaId, code:resp.meta.code });
 	});
 
   
@@ -39,8 +41,9 @@ app.use(router.delete('/like/:mediaId/:accessToken', function(req, res, next) {
 	};
 
 	request(options, function(error, response, body) {
-	    console.log(body);
-	    res.json({ media: req.params.mediaId });
+	    var resp = JSON.parse(body);
+	    console.log(resp);
+	    res.json({ media: req.params.mediaId, code:resp.meta.code });
 	});
 
   

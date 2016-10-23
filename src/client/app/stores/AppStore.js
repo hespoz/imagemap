@@ -2,6 +2,7 @@ import AppDispatcher from '../dispatchers/AppDispatcher';
 import { EventEmitter } from 'events';
 import assign from 'object-assign';
 import $ from "jquery";
+import blockUI from 'block-ui';
 
 var CHANGE_EVENT = 'change';
 
@@ -34,7 +35,18 @@ var AppStore = assign({}, EventEmitter.prototype, {
         jsonpCallback: "jsonpcallback",
         success: function(data) {
             console.log(data);
-            AppStore.updatePictures(mediaId,status);
+            switch(data.code){
+                case 200:
+                  AppStore.updatePictures(mediaId,status);
+                  break;
+                case 400:
+                  alert("Oops the token is invalid, you will be redirected to the main page " + redirectUrl);
+                  var redirectUrl = window.location.href.split("#access_token")[0];
+                  window.location.href=redirectUrl;
+                  break;
+
+            }
+            
             AppStore.emitChange();
         },
         error: function(jqXHR, textStatus, errorThrown) {
@@ -65,12 +77,9 @@ var AppStore = assign({}, EventEmitter.prototype, {
 AppDispatcher.register( function( payload ) {
     switch( payload.actionName ) {
 
-        // Do we know how to handle this action?
         case 'getPictures':
-
-            /*_Pictures = temp.data;
-            AppStore.emitChange();*/
-            console.log(payload.data)
+            
+            $.blockUI({ message: '<h1>Loading...</h1>' });
             $.ajax({
                 method: "GET",
                 url: "https://api.instagram.com/v1/media/search?distance=3000&lat=" + payload.data.lat + "&lng=" + payload.data.lng + "&access_token=" + payload.data.authToken,
@@ -78,32 +87,37 @@ AppDispatcher.register( function( payload ) {
                 jsonp: "callback",
                 jsonpCallback: "jsonpcallback",
                 success: function(data) {
-                    console.log(data);
-                    _Pictures = data.data;
+                    switch(data.meta.code){
+                        case 200:
+                          console.log(data.data)
+                          _Pictures = data.data;
+                          break;
+                        case 400:
+                          alert("Oops the token is invalid, you will be redirected to the main page " + redirectUrl);
+                          var redirectUrl = window.location.href.split("#access_token")[0];
+                          window.location.href=redirectUrl;
+                          break;
+
+                    }
+                    
                     AppStore.emitChange();
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
-                    //alert("Check you internet Connection");
-                    alert("Error");
                     AppStore.emitChange();
                 }
+            }).done(function(){
+              $.unblockUI();
             });
 
             
             break;
 
         case 'likePicture':
-
-            AppStore.likeAPI("POST",payload.data.mediaId,payload.data.accesToken,true);
-
-
-
+            AppStore.likeAPI("POST",payload.data.mediaId,payload.data.authToken,true);
             break;
 
         case 'dislikePicture':
-
-          AppStore.likeAPI("DELETE",payload.data.mediaId,payload.data.accesToken,false);
-
+            AppStore.likeAPI("DELETE",payload.data.mediaId,payload.data.authToken,false);
             break;
 
     }

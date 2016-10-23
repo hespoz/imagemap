@@ -66,7 +66,7 @@ var PicturesComponent = React.createClass({
 	if (this.state.pictures.length==0) {
 		return (
       <Alert bsStyle="warning">
-        <strong><h5>Pick a location from the map please!</h5></strong>
+        <strong><h5>It seems theres is no pictures in that location, please Pick other location!</h5></strong>
       </Alert>
   );
 	}
@@ -86,8 +86,17 @@ var PicturesComponent = React.createClass({
                     <Col xs={6} md={4}>
 
                   <Thumbnail src={row.images.standard_resolution.url} alt="142x100">
-                    <h3>Thumbnail label</h3>
-                      { row.user_has_liked == false ? 
+                    
+
+                    { row.caption != null ? 
+                      <h3>{row.caption.text}</h3>
+                    : 
+                     null
+                    }
+                    
+
+
+                    { row.user_has_liked == false ? 
                       <Button id={row.id} bsStyle="large" bsSize="large" block onClick={that.like}>Like</Button>
                     
                     : 
